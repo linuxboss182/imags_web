@@ -1,13 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b71066b-da0b-454b-9531-215ee19aa119" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+    <list default="true" id="1b71066b-da0b-454b-9531-215ee19aa119" name="Default Changelist" comment="Processing data from firebase">
+      <change afterPath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/angular.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/chrome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/dashboard.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/edge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/firefox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/html.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/map.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/md-react.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/notifications.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/opera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/opt_md_angular_thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/opt_md_thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/opt_md_vue_thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/opt_mdr_thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/react.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/safari.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/tables.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/userprofile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/github/vuejs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/apple-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/cover.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/marc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/mask.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/new_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/reactlogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/tim_80x80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/cardImagesStyles.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/checkboxAdnRadioStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/buttonStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/cardAvatarStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/cardBodyStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/cardFooterStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/cardHeaderStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/cardIconStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/cardStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/customInputStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/customTabsStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/footerStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/headerLinksStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/headerStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/sidebarStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/snackbarContentStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/tableStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/tasksStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/typographyStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/dropdownStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/tooltipStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/views/dashboardStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/views/iconsStyle.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Card/Card.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Card/CardAvatar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Card/CardBody.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Card/CardFooter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Card/CardHeader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Card/CardIcon.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomButtons/Button.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomInput/CustomInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomTabs/CustomTabs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Grid/GridContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Grid/GridItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/HeaderLinks.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Snackbar/Snackbar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Snackbar/SnackbarContent.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Table/Table.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Tasks/Tasks.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Danger.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Info.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Muted.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Primary.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Quote.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Success.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Typography/Warning.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/Dashboard/Dashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/dashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/variables/charts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/variables/general.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dashboard/Dashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Icons/Icons.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Maps/Maps.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Notifications/Notifications.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/TableList/TableList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Typography/Typography.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,19 +125,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="2" />
-          <entry key="html" value="2" />
-          <entry key="js" value="6" />
-          <entry key="json" value="3" />
+          <entry key="css" value="3" />
+          <entry key="html" value="3" />
+          <entry key="js" value="8" />
+          <entry key="json" value="4" />
+          <entry key="jsx" value="8" />
           <entry key="svg" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="2" />
-          <entry key="HTML" value="2" />
-          <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="6" />
+          <entry key="CSS" value="3" />
+          <entry key="HTML" value="3" />
+          <entry key="JSON" value="4" />
+          <entry key="JSX Harmony" value="8" />
+          <entry key="JavaScript" value="8" />
           <entry key="SVG" value="1" />
         </counts>
       </usages-collector>
@@ -54,37 +150,127 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1771" />
+          <entry key="html" value="1" />
+          <entry key="js" value="1779" />
+          <entry key="json" value="1" />
+          <entry key="jsx" value="138" />
+          <entry key="txt" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1771" />
+          <entry key="HTML" value="1" />
+          <entry key="JSON" value="1" />
+          <entry key="JSX Harmony" value="138" />
+          <entry key="JavaScript" value="1779" />
+          <entry key="PLAIN_TEXT" value="32" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+            <state relative-caret-position="408">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/variables/charts.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2427">
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/firebase.js">
+        <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/variables/general.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
-                <element signature="e#3#44#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/css/material-dashboard-react.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3036" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes/dashboard.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="82" column="4" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+              <folding>
+                <element signature="e#187#246#0" expanded="true" />
+                <element signature="e#502#560#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Groups/Groups.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="173" column="10" lean-forward="true" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Sessions/Sessions.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1313">
+              <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
+              <folding>
+                <element signature="e#59#120#0" expanded="true" />
+                <element signature="e#195#247#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Dashboard/Dashboard.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#164#225#0" expanded="true" />
+                <element signature="e#291#336#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -101,7 +287,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>console</find>
+      <find>UpgradeToPro</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\Users\Jesus\WebstormProjects\imags_web\src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,6 +301,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/firebase.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/views/Sessions/Sessions.jsx" />
+        <option value="$PROJECT_DIR$/src/routes/dashboard.jsx" />
+        <option value="$PROJECT_DIR$/src/views/Groups/Groups.jsx" />
       </list>
     </option>
   </component>
@@ -159,6 +355,51 @@
               <item name="imags_web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="variables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Groups" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Sessions" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -174,6 +415,17 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jesus\WebstormProjects\imags_web\src\views" />
+      <recent name="C:\Users\Jesus\WebstormProjects\imags_web\src\views\Ref" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jesus\WebstormProjects\imags_web\src\views" />
+      <recent name="C:\Users\Jesus\WebstormProjects\imags_web\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -199,24 +451,32 @@
       <updated>1540924321375</updated>
       <workItem from="1540924322763" duration="741000" />
       <workItem from="1540925488047" duration="6382000" />
-      <workItem from="1541363695044" duration="4138000" />
+      <workItem from="1541363695044" duration="6030000" />
     </task>
+    <task id="LOCAL-00001" summary="Processing data from firebase">
+      <created>1541369259492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541369259492</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11261000" />
+    <option name="totallyTimeSpent" value="13153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="0" width="1263" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20163265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20163265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2913843" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29066107" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -224,7 +484,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24973767" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.45435467" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -236,17 +496,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Processing data from firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Processing data from firebase" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logo.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -275,14 +529,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/components/Card/Card.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200" />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/firebase.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -295,10 +548,102 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+        <state relative-caret-position="442">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/material-dashboard-react.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3036" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Dashboard/Dashboard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#164#225#0" expanded="true" />
+            <element signature="e#291#336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/variables/general.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/variables/charts.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2427">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Sessions/Sessions.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1313">
+          <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
+          <folding>
+            <element signature="e#59#120#0" expanded="true" />
+            <element signature="e#195#247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Groups/Groups.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="173" column="10" lean-forward="true" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/dashboard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="82" column="4" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+          <folding>
+            <element signature="e#187#246#0" expanded="true" />
+            <element signature="e#502#560#0" expanded="true" />
           </folding>
         </state>
       </provider>
