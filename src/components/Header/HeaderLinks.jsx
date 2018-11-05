@@ -11,7 +11,6 @@ import Hidden from "@material-ui/core/Hidden";
 import Poppers from "@material-ui/core/Popper";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
-import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
 // core components
@@ -70,26 +69,26 @@ class HeaderLinks extends React.Component {
           </Hidden>
         </Button>
         <div className={classes.manager}>
-          <Button
-            buttonRef={node => {
-              this.anchorEl = node;
-            }}
-            color={window.innerWidth > 959 ? "transparent" : "white"}
-            justIcon={window.innerWidth > 959}
-            simple={!(window.innerWidth > 959)}
-            aria-owns={open ? "menu-list-grow" : null}
-            aria-haspopup="true"
-            onClick={this.handleToggle}
-            className={classes.buttonLink}
-          >
-            <Notifications className={classes.icons} />
-            <span className={classes.notifications}>5</span>
-            <Hidden mdUp implementation="css">
-              <p onClick={this.handleClick} className={classes.linkText}>
-                Notification
-              </p>
-            </Hidden>
-          </Button>
+          {/*<Button*/}
+            {/*buttonRef={node => {*/}
+              {/*this.anchorEl = node;*/}
+            {/*}}*/}
+            {/*color={window.innerWidth > 959 ? "transparent" : "white"}*/}
+            {/*justIcon={window.innerWidth > 959}*/}
+            {/*simple={!(window.innerWidth > 959)}*/}
+            {/*aria-owns={open ? "menu-list-grow" : null}*/}
+            {/*aria-haspopup="true"*/}
+            {/*onClick={this.handleToggle}*/}
+            {/*className={classes.buttonLink}*/}
+          {/*>*/}
+            {/*<Notifications className={classes.icons} />*/}
+            {/*<span className={classes.notifications}>5</span>*/}
+            {/*<Hidden mdUp implementation="css">*/}
+              {/*<p onClick={this.handleClick} className={classes.linkText}>*/}
+                {/*Notification*/}
+              {/*</p>*/}
+            {/*</Hidden>*/}
+          {/*</Button>*/}
           <Poppers
             open={open}
             anchorEl={this.anchorEl}

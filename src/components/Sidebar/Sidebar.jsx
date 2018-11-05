@@ -69,7 +69,7 @@ const Sidebar = ({ ...props }) => {
   );
   var brand = (
     <div className={classes.logo}>
-      <a href="https://www.creative-tim.com" className={classes.logoLink}>
+      <a href="" className={classes.logoLink}>
         <div className={classes.logoImage}>
           <img src={logo} alt="logo" className={classes.img} />
         </div>
@@ -121,7 +121,10 @@ const Sidebar = ({ ...props }) => {
               className={classes.background}
               style={{ backgroundImage: "url(" + image + ")" }}
             />
-          ) : null}
+          ) :  <div
+              className={classes.background}
+              // style={{ backgroundImage: "url(" + image + ")" }}
+          />}
         </Drawer>
       </Hidden>
     </div>
