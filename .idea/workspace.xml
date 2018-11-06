@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b71066b-da0b-454b-9531-215ee19aa119" name="Default Changelist" comment="Imported material ui template">
+    <list default="true" id="1b71066b-da0b-454b-9531-215ee19aa119" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Groups/Groups.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Groups/Groups.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Sessions/SessionChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Sessions/SessionChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Sessions/Sessions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Sessions/Sessions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,25 +28,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="4" />
+          <entry key="css" value="5" />
           <entry key="gif" value="1" />
-          <entry key="html" value="3" />
+          <entry key="html" value="5" />
+          <entry key="ico" value="1" />
           <entry key="jpeg" value="3" />
           <entry key="jpg" value="16" />
           <entry key="js" value="15" />
-          <entry key="json" value="5" />
-          <entry key="jsx" value="42" />
+          <entry key="json" value="6" />
+          <entry key="jsx" value="43" />
           <entry key="png" value="20" />
           <entry key="svg" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="4" />
-          <entry key="HTML" value="3" />
-          <entry key="Image" value="40" />
-          <entry key="JSON" value="5" />
-          <entry key="JSX Harmony" value="42" />
+          <entry key="CSS" value="5" />
+          <entry key="HTML" value="5" />
+          <entry key="Image" value="41" />
+          <entry key="JSON" value="6" />
+          <entry key="JSX Harmony" value="43" />
           <entry key="JavaScript" value="15" />
           <entry key="SVG" value="2" />
         </counts>
@@ -65,19 +62,19 @@
           <entry key="css" value="30" />
           <entry key="html" value="1" />
           <entry key="js" value="1851" />
-          <entry key="json" value="1" />
+          <entry key="json" value="3" />
           <entry key="jsx" value="1383" />
-          <entry key="txt" value="61" />
+          <entry key="txt" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="30" />
           <entry key="HTML" value="1" />
-          <entry key="JSON" value="1" />
+          <entry key="JSON" value="3" />
           <entry key="JSX Harmony" value="1383" />
           <entry key="JavaScript" value="1851" />
-          <entry key="PLAIN_TEXT" value="61" />
+          <entry key="PLAIN_TEXT" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -89,11 +86,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Sessions/Sessions.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="128" column="89" lean-forward="true" selection-start-line="128" selection-start-column="89" selection-end-line="128" selection-end-column="89" />
+              <caret line="128" column="89" selection-start-line="128" selection-start-column="89" selection-end-line="128" selection-end-column="89" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/css/material-dashboard-react.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="68" column="24" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -111,47 +135,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Sessions/SessionChart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/layouts/Dashboard/Dashboard.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#394#444#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/dashboard.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
-              <folding>
-                <element signature="e#187#246#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/Maps/Maps.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="21" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -175,7 +171,7 @@
         <entry file="file://$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
-              <caret line="130" column="50" lean-forward="true" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
+              <caret line="130" column="50" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -214,6 +210,9 @@
       <find>sessions</find>
       <find>dailySalesChart</find>
       <find>about me</find>
+      <find>dead</find>
+      <find>fore</find>
+      <find>brow</find>
       <find>console.</find>
     </findStrings>
     <dirStrings>
@@ -229,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/firebase.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/Header/HeaderLinks.jsx" />
         <option value="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/headerLinksStyle.jsx" />
@@ -244,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/views/Sessions/Sessions.jsx" />
         <option value="$PROJECT_DIR$/src/views/Sessions/SessionChart.js" />
         <option value="$PROJECT_DIR$/src/views/Groups/Groups.jsx" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -264,7 +263,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="55" />
+    <option name="x" value="278" />
     <option name="width" value="1660" />
     <option name="height" value="1087" />
   </component>
@@ -285,46 +284,12 @@
             <path>
               <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="imags_web" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Groups" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Sessions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="imags_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="imags_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="UserProfile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -506,17 +471,23 @@
       <option name="project" value="LOCAL" />
       <updated>1541371131643</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed updating data bug">
+      <created>1541526374931</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541526374931</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22382000" />
+    <option name="totallyTimeSpent" value="23597000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="0" width="1660" height="1087" extended-state="0" />
-    <editor active="true" />
+    <frame x="278" y="0" width="1660" height="1087" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15228114" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15228114" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -531,7 +502,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27177334" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.5309549" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -566,37 +537,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Processing data from firebase" />
     <MESSAGE value="Imported material ui template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imported material ui template" />
+    <MESSAGE value="Fixed updating data bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed updating data bug" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/TableList/TableList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="38" column="3" lean-forward="true" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Typography/Typography.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="38" column="19" lean-forward="true" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Notifications/Notifications.jsx" />
     <entry file="file://$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/headerLinksStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -682,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/material-dashboard-react.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2360">
-          <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Sidebar/Sidebar.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -768,17 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="130" column="50" lean-forward="true" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
+          <caret line="130" column="50" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -825,10 +755,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/material-dashboard-react.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="68" column="24" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Sessions/Sessions.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="128" column="89" lean-forward="true" selection-start-line="128" selection-start-column="89" selection-end-line="128" selection-end-column="89" />
+          <caret line="128" column="89" selection-start-line="128" selection-start-column="89" selection-end-line="128" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
         </state>
       </provider>
     </entry>
