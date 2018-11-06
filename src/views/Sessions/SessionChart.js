@@ -2,23 +2,13 @@ import React from "react";
 
 import { Legend, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 
-const initialState = {
-    left : 'dataMin',
-    right : 'dataMax',
-    refAreaLeft : '',
-    refAreaRight : '',
-    top : 'dataMax+1',
-    top2 : 'dataMax+20',
-    bottom2 : 'dataMin-20',
-    animation : true
-};
-
 export default class StreamingDemo extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = initialState;
-        this.state.session = props.session;
+        this.state = {
+            session:  props.session
+        };
     }
 
     handleTooltip(e){

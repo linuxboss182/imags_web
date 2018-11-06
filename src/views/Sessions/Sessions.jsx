@@ -123,10 +123,10 @@ class Sessions extends React.Component {
         return (
             <GridContainer>
                 {this.state.sessions.map((session, i) => {
-                    return (<GridItem xs={12} sm={12} md={12}>
+                    return (<GridItem xs={12} sm={12} md={12} key={i}>
                         <Card>
                             <CardHeader color="primary">
-                                <h4 className={classes.cardTitleWhite}>Session: {i} {console.log(session)}</h4>
+                                <h4 className={classes.cardTitleWhite}>Session: {i} </h4>
                                 <p className={classes.cardCategoryWhite}>
                                     ID: {session.num}
                                 </p>
