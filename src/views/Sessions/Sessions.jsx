@@ -30,6 +30,7 @@ import CardIcon from "components/Card/CardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 
+
 import { bugs, website, server } from "variables/general.jsx";
 
 import {
@@ -39,6 +40,7 @@ import {
 } from "variables/charts.jsx";
 
 import firebase from 'db.js';
+import SessionChart from './SessionChart.js'
 
 const styles = {
     cardCategoryWhite: {
@@ -67,6 +69,9 @@ const styles = {
             fontWeight: "400",
             lineHeight: "1"
         }
+    },
+    sessionBody: {
+        margin: 'auto'
     }
 };
 
@@ -126,12 +131,13 @@ class Sessions extends React.Component {
                                     ID: {session.num}
                                 </p>
                             </CardHeader>
-                            <CardBody>
-                                <Table
-                                    tableHeaderColor="primary"
-                                    tableHead={["Time", "Event", "Track", "Pain"]}
-                                    tableData={this.buildData(session)}
-                                />
+                            <CardBody className={classes.sessionBody}>
+                                {/*<Table*/}
+                                    {/*tableHeaderColor="primary"*/}
+                                    {/*tableHead={["Time", "Event", "Track", "Pain"]}*/}
+                                    {/*tableData={this.buildData(session)}*/}
+                                {/*/>*/}
+                                <SessionChart session={session}/>
                             </CardBody>
                         </Card>
                     </GridItem>
