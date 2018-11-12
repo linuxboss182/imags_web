@@ -13,7 +13,7 @@ export default class StreamingDemo extends React.Component {
         };
         this.timeFormatter = this.timeFormatter.bind(this);
         this.songFormatter = this.songFormatter.bind(this);
-        this.songID = this.songID.bind(this);
+        this.songName = this.songName.bind(this);
     }
 
     handleTooltip(e){
@@ -33,12 +33,10 @@ export default class StreamingDemo extends React.Component {
     }
 
     songFormatter(tick){
-        console.log(tick)
-        return tick
         return (tick >= 0) ? (this.state.session.songStates[tick].track) ? this.state.session.songStates[tick].track.name: "" : ""
     }
 
-    songID(event){
+    songName(event){
         return (event.songState >= 0) ? (this.state.session.songStates[event.songState].track) ? this.state.session.songStates[event.songState].track.name: "" : ""
     }
 
@@ -51,7 +49,7 @@ export default class StreamingDemo extends React.Component {
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <YAxis type="number" domain={[0, 10]}/>
                     <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']} scale="time" tickFormatter={this.timeFormatter}/>
-                    <XAxis type="category" dataKey={this.songID} xAxisId={1} interval='preserveStartEnd' />
+                    <XAxis type="category" dataKey={this.songName} xAxisId={1} allowDuplicatedCategory={false} interval='preserveStartEnd'/>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     {/*<Tooltip content={this.handleTooltip}/>*/}
