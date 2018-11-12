@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Legend, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
+import moment from 'moment';
+
 
 export default class StreamingDemo extends React.Component {
 
@@ -9,6 +11,9 @@ export default class StreamingDemo extends React.Component {
         this.state = {
             session:  props.session
         };
+        this.timeFormatter = this.timeFormatter.bind(this);
+        this.songFormatter = this.songFormatter.bind(this);
+        this.songID = this.songID.bind(this);
     }
 
     handleTooltip(e){
@@ -23,6 +28,20 @@ export default class StreamingDemo extends React.Component {
         }
     }
 
+    timeFormatter(tick){
+        return moment(tick).format('HH:mm:ss');
+    }
+
+    songFormatter(tick){
+        console.log(tick)
+        return tick
+        return (tick >= 0) ? (this.state.session.songStates[tick].track) ? this.state.session.songStates[tick].track.name: "" : ""
+    }
+
+    songID(event){
+        return (event.songState >= 0) ? (this.state.session.songStates[event.songState].track) ? this.state.session.songStates[event.songState].track.name: "" : ""
+    }
+
     render() {
         const { data, barIndex, left, right, refAreaLeft, refAreaRight, top, bottom, top2, bottom2 } = this.state;
 
@@ -31,7 +50,8 @@ export default class StreamingDemo extends React.Component {
                 <LineChart width={1200} height={400} data={this.state.session.events}
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <YAxis type="number" domain={[0, 10]}/>
-                    <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']}/>
+                    <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']} scale="time" tickFormatter={this.timeFormatter}/>
+                    <XAxis type="category" dataKey={this.songID} xAxisId={1} interval='preserveStartEnd' />
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     {/*<Tooltip content={this.handleTooltip}/>*/}

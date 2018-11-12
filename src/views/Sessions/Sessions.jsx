@@ -95,6 +95,7 @@ class Sessions extends React.Component {
             for (let item in items) {
                 newState.push({
                     events: items[item].events,
+                    songStates: items[item].songStates,
                     num: item
                 });
             }
