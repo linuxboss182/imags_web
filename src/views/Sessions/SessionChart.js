@@ -31,6 +31,7 @@ export default class StreamingDemo extends React.Component {
                 <LineChart width={1200} height={400} data={this.state.session.events}
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <YAxis type="number" domain={[0, 10]}/>
+                    <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']}/>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     {/*<Tooltip content={this.handleTooltip}/>*/}
