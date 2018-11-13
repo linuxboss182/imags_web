@@ -41,7 +41,12 @@ const styles = {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
     textDecoration: "none"
-  }
+  },
+    nameHeader:{
+      textColor: "#FFFFFF",
+      color: "#FFFFFF",
+      stroke: "#FFFFFF"
+    }
 };
 
 class UserProfile extends React.Component {
@@ -145,7 +150,11 @@ class UserProfile extends React.Component {
                                         id="standard-name"
                                         value={participant.name}
                                         className={classes.textField}
-
+                                        style={styles.nameHeader}
+                                        InputProps={{
+                                            style: styles.nameHeader,
+                                        }}
+                                        // style={styles.nameHeader}
                                         // onChange = {(e)=>{console.log(e.target.value)}}
                                         onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {name: {$set: e.target.value}}})})}
 
