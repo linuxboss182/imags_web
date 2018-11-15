@@ -43,7 +43,7 @@ class UserProfile extends React.Component {
       this.state = {
         participants: []
       }
-
+        this.newParticipant = this.newParticipant.bind(this);
     }
 
     componentDidMount(){
@@ -69,12 +69,19 @@ class UserProfile extends React.Component {
         });
     }
 
+    newParticipant(){
+        console.log("h\n")
+    }
+
     render(){
 
         const { classes } = this.props;
         return (
             <div>
                 <GridContainer>
+                    <GridItem xs={12} sm={12} md={8}>
+                        <Button color="primary" onPress={this.newParticipant}>New Participant</Button>
+                    </GridItem>
                     {this.state.participants.map((participant, i) => {
                         return (<GridItem xs={12} sm={12} md={8}>
                             <Card>
