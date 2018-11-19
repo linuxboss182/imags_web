@@ -9,7 +9,7 @@ export default class StreamingDemo extends React.Component {
         super(props);
         this.state = {
             session: props.session,
-            colors: ["#e83428", "#18d428", "#8884d8"], //TODO this should be a generated
+            colors: ["#8884d8", "#18d428", "#783998"], //TODO this should be a generated
         };
 
         if(!this.state.session.songIDs){
@@ -73,7 +73,7 @@ export default class StreamingDemo extends React.Component {
                     <Tooltip />
                     <Legend />
                     {this.state.session.songIDs ? Object.keys(this.state.session.songIDs).map((k,i) => {
-                        return (<Line name={this.songName(k)} type="monotone" dataKey={k} stroke={this.state.colors[i]} activeDot={{r: 8}} />)
+                        return (<Line name={this.songName(k)} type="monotone" dataKey={k} stroke={(k == -1) ? "#e83428" : this.state.colors[i]} activeDot={{r: 8}} />)
                     }) : null}
 
                 </LineChart>
