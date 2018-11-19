@@ -1,7 +1,9 @@
 import React from "react";
 
-import { Legend, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
+import { Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 import moment from 'moment';
+
+var randomColor = require('randomcolor');
 
 export default class StreamingDemo extends React.Component {
 
@@ -9,7 +11,7 @@ export default class StreamingDemo extends React.Component {
         super(props);
         this.state = {
             session: props.session,
-            colors: ["#8884d8", "#18d428", "#783998"], //TODO this should be a generated
+            colors: ["red", "blue", "pink", "green", "purple"]
         };
 
         if(!this.state.session.songIDs){
@@ -29,7 +31,11 @@ export default class StreamingDemo extends React.Component {
     songID(event){
         if (event.songState >= 0){
             let songState = this.state.session.songStates[event.songState];
-            return songState.songID
+            if (songState.state.playing) {
+                return songState.songID
+            }else{
+                return -1
+            }
         }else{
             return -1
         }
@@ -68,12 +74,18 @@ export default class StreamingDemo extends React.Component {
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <YAxis type="number" domain={[0, 10]}/>
                     <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']} scale="time" tickFormatter={this.timeFormatter}/>
-                    <XAxis type="category" dataKey={this.songID} xAxisId={1} allowDuplicatedCategory={false} interval='preserveStartEnd' hide={true}/>
+                    {/*<XAxis type="category" dataKey={this.songID} xAxisId={1} allowDuplicatedCategory={false} interval='preserveStartEnd' hide={true}/>*/}
+                    {/*<XAxis type="category" dataKey="eventType" xAxisId={2} interval='preserveStartEnd' hide={true}/>*/}
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip />
                     <Legend />
                     {this.state.session.songIDs ? Object.keys(this.state.session.songIDs).map((k,i) => {
-                        return (<Line name={this.songName(k)} type="monotone" dataKey={k} stroke={(k == -1) ? "#e83428" : this.state.colors[i]} activeDot={{r: 8}} />)
+                        let color = randomColor({
+                            luminosity: 'bright',
+                            hue: this.state.colors[i % this.state.colors.length]
+                        });
+                        return (<Line name={this.songName(k)} type="monotone" dataKey={k}
+                                      stroke={(k == -1) ? "none" : color} activeDot={{r: 8, stroke: (k == -1) ? "#000000" : color}} dot={{stroke: (k == -1) ? "#000000" : color}} />)
                     }) : null}
 
                 </LineChart>
