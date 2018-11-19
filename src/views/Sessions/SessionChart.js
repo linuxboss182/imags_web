@@ -9,8 +9,19 @@ export default class StreamingDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            session:  props.session
+            session: props.session,
+            colors: ["#e83428", "#18d428", "#8884d8"]
         };
+
+        this.state.session.a = {}
+        this.state.session.events.map((event) => {
+            // event.pain = event.pain - 1;
+            (this.state.session.a[this.songName(event)] = this.state.session.a[this.songName(event)] || []).push(event)
+            event[this.songName(event)] = event.pain
+        });
+
+        console.log(this.state.session)
+
         this.timeFormatter = this.timeFormatter.bind(this);
         this.songFormatter = this.songFormatter.bind(this);
         this.songName = this.songName.bind(this);
@@ -54,7 +65,14 @@ export default class StreamingDemo extends React.Component {
                     <Tooltip/>
                     {/*<Tooltip content={this.handleTooltip}/>*/}
                     <Legend />
-                    <Line type="monotone" dataKey="pain" stroke="#8884d8" activeDot={{r: 8}}/>
+                    {/*<Line type="monotone" dataKey="pain" stroke="#8884d8" activeDot={{r: 8}}/>*/}
+                    {/*<Line type="monotone" dataKey="test" stroke="#18d428" activeDot={{r: 8}}/>*/}
+
+                    {Object.keys(this.state.session.a).map((k,i) => {
+                        console.log(k)
+                        return (<Line type="monotone" dataKey={k} stroke={this.state.colors[i]} activeDot={{r: 8}}/>)
+                    })}
+
                 </LineChart>
             </div>
         );
