@@ -12,6 +12,11 @@ export default class StreamingDemo extends React.Component {
             colors: ["#e83428", "#18d428", "#8884d8"], //TODO this should be a generated
         };
 
+        if(!this.state.session.songIDs){
+            this.state.session.songIDs = {}
+        }
+        this.state.session.songIDs[-1] = "NA";
+
         this.state.session.events.map((event) => {
             event[this.songID(event)] = event.pain
         });
@@ -31,7 +36,7 @@ export default class StreamingDemo extends React.Component {
     }
 
     songName(id){
-        if (id === -1){
+        if (id == -1){
             return "NA"
         }else{
             return this.state.session.songIDs[id].name
