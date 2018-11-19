@@ -26,7 +26,6 @@ export default class StreamingDemo extends React.Component {
         this.timeFormatter = this.timeFormatter.bind(this);
         this.songName = this.songName.bind(this);
         this.songID = this.songID.bind(this);
-        this.labelFormatter = this.labelFormatter.bind(this);
     }
 
     songID(event){
