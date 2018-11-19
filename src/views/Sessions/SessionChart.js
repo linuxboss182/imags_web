@@ -3,28 +3,39 @@ import React from "react";
 import { Legend, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 import moment from 'moment';
 
-
 export default class StreamingDemo extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             session: props.session,
-            colors: ["#e83428", "#18d428", "#8884d8"]
+            colors: ["#e83428", "#18d428", "#8884d8"], //TODO this should be a generated
         };
 
-        this.state.session.a = {}
         this.state.session.events.map((event) => {
-            // event.pain = event.pain - 1;
-            (this.state.session.a[this.songName(event)] = this.state.session.a[this.songName(event)] || []).push(event)
-            event[this.songName(event)] = event.pain
+            event[this.songID(event)] = event.pain
         });
 
-        console.log(this.state.session)
-
         this.timeFormatter = this.timeFormatter.bind(this);
-        this.songFormatter = this.songFormatter.bind(this);
         this.songName = this.songName.bind(this);
+        this.songID = this.songID.bind(this);
+    }
+
+    songID(event){
+        if (event.songState >= 0){
+            let songState = this.state.session.songStates[event.songState];
+            return songState.songID
+        }else{
+            return -1
+        }
+    }
+
+    songName(id){
+        if (id === -1){
+            return "NA"
+        }else{
+            return this.state.session.songIDs[id].name
+        }
     }
 
     handleTooltip(e){
@@ -43,14 +54,6 @@ export default class StreamingDemo extends React.Component {
         return moment(tick).format('HH:mm:ss');
     }
 
-    songFormatter(tick){
-        return (tick >= 0) ? (this.state.session.songStates[tick].track) ? this.state.session.songStates[tick].track.name: "" : ""
-    }
-
-    songName(event){
-        return (event.songState >= 0) ? (this.state.session.songStates[event.songState].track) ? this.state.session.songStates[event.songState].track.name: "" : ""
-    }
-
     render() {
         const { data, barIndex, left, right, refAreaLeft, refAreaRight, top, bottom, top2, bottom2 } = this.state;
 
@@ -60,17 +63,12 @@ export default class StreamingDemo extends React.Component {
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <YAxis type="number" domain={[0, 10]}/>
                     <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']} scale="time" tickFormatter={this.timeFormatter}/>
-                    <XAxis type="category" dataKey={this.songName} xAxisId={1} allowDuplicatedCategory={false} interval='preserveStartEnd'/>
+                    <XAxis type="category" dataKey={this.songID} xAxisId={1} allowDuplicatedCategory={false} interval='preserveStartEnd' hide={true}/>
                     <CartesianGrid strokeDasharray="3 3"/>
-                    <Tooltip/>
-                    {/*<Tooltip content={this.handleTooltip}/>*/}
+                    <Tooltip />
                     <Legend />
-                    {/*<Line type="monotone" dataKey="pain" stroke="#8884d8" activeDot={{r: 8}}/>*/}
-                    {/*<Line type="monotone" dataKey="test" stroke="#18d428" activeDot={{r: 8}}/>*/}
-
-                    {Object.keys(this.state.session.a).map((k,i) => {
-                        console.log(k)
-                        return (<Line type="monotone" dataKey={k} stroke={this.state.colors[i]} activeDot={{r: 8}}/>)
+                    {Object.keys(this.state.session.songIDs).map((k,i) => {
+                        return (<Line name={this.songName(k)} type="monotone" dataKey={k} stroke={this.state.colors[i]} activeDot={{r: 8}} />)
                     })}
 
                 </LineChart>
