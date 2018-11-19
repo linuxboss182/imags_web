@@ -51,7 +51,7 @@ export default class StreamingDemo extends React.Component {
     }
 
     timeFormatter(tick){
-        return moment(tick).format('HH:mm:ss');
+        return moment(tick - this.state.session.events[0].date).format('mm:ss');
     }
 
     render() {
@@ -67,9 +67,9 @@ export default class StreamingDemo extends React.Component {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip />
                     <Legend />
-                    {Object.keys(this.state.session.songIDs).map((k,i) => {
+                    {this.state.session.songIDs ? Object.keys(this.state.session.songIDs).map((k,i) => {
                         return (<Line name={this.songName(k)} type="monotone" dataKey={k} stroke={this.state.colors[i]} activeDot={{r: 8}} />)
-                    })}
+                    }) : null}
 
                 </LineChart>
             </div>
