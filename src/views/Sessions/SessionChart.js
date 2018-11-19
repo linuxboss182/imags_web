@@ -26,6 +26,7 @@ export default class StreamingDemo extends React.Component {
         this.timeFormatter = this.timeFormatter.bind(this);
         this.songName = this.songName.bind(this);
         this.songID = this.songID.bind(this);
+        this.labelFormatter = this.labelFormatter.bind(this);
     }
 
     songID(event){
@@ -77,7 +78,7 @@ export default class StreamingDemo extends React.Component {
                     {/*<XAxis type="category" dataKey={this.songID} xAxisId={1} allowDuplicatedCategory={false} interval='preserveStartEnd' hide={true}/>*/}
                     {/*<XAxis type="category" dataKey="eventType" xAxisId={2} interval='preserveStartEnd' hide={true}/>*/}
                     <CartesianGrid strokeDasharray="3 3"/>
-                    <Tooltip />
+                    <Tooltip labelFormatter={this.timeFormatter}/>
                     <Legend />
                     {this.state.session.songIDs ? Object.keys(this.state.session.songIDs).map((k,i) => {
                         let color = randomColor({
