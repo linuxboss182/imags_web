@@ -40,7 +40,7 @@ import {
 } from "variables/charts.jsx";
 
 import firebase from 'db.js';
-import SessionChart from '../Sessions/SessionChart.js'
+import GroupChart from './GroupChart.js'
 
 const styles = {
     cardCategoryWhite: {
@@ -126,7 +126,8 @@ class Groups extends React.Component {
         return (
             <GridContainer>
                 {this.state.sessions.map((group, i) => {
-                    return (<GridItem xs={12} sm={12} md={12} key={i}>
+                    if(i == 0) {
+                        return (<GridItem xs={12} sm={12} md={12} key={i}>
                             <Card>
                                 <CardHeader color="primary">
                                     <h4 className={classes.cardTitleWhite}>Group: {i} </h4>
@@ -140,11 +141,12 @@ class Groups extends React.Component {
                                     {/*tableHead={["Time", "Event", "Track", "Pain"]}*/}
                                     {/*tableData={this.buildData(session)}*/}
                                     {/*/>*/}
-                                    <SessionChart session={group}/>
+                                    <GroupChart session={this.state.sessions}/>
                                 </CardBody>
                             </Card>
-                        </GridItem>
-                    )})}
+                        </GridItem>)
+                    }
+                })}
             </GridContainer>
         );
     }
