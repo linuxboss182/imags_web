@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
+import { ResponsiveContainer, Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 import moment from 'moment';
 
 var randomColor = require('randomcolor');
@@ -69,8 +69,8 @@ export default class StreamingDemo extends React.Component {
         const { data, barIndex, left, right, refAreaLeft, refAreaRight, top, bottom, top2, bottom2 } = this.state;
 
         return (
-            <div className="highlight-bar-charts">
-                <LineChart width={1200} height={400} data={this.state.session.events}
+                <ResponsiveContainer height={400} width="99%" >
+                <LineChart data={this.state.session.events}
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <YAxis type="number" domain={[0, 10]}/>
                     <XAxis type="number" dataKey="date"  domain={['dataMin', 'dataMax']} scale="time" tickFormatter={this.timeFormatter}/>
@@ -87,9 +87,8 @@ export default class StreamingDemo extends React.Component {
                         return (<Line name={this.songName(k)} type="monotone" dataKey={k}
                                       stroke={(k == -1) ? "none" : color} activeDot={{r: 8, stroke: (k == -1) ? "#000000" : color}} dot={{stroke: (k == -1) ? "#000000" : color}} />)
                     }) : null}
-
                 </LineChart>
-            </div>
+                </ResponsiveContainer>
         );
     }
 }

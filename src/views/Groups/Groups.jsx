@@ -95,6 +95,8 @@ class Groups extends React.Component {
             for (let item in items) {
                 newState.push({
                     events: items[item].events,
+                    songStates: items[item].songStates,
+                    songIDs: items[item].songIDs,
                     num: item
                 });
             }

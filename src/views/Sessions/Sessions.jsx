@@ -71,7 +71,8 @@ const styles = {
         }
     },
     sessionBody: {
-        margin: 'auto'
+        margin: 'auto',
+        width: '100%'
     }
 };
 
