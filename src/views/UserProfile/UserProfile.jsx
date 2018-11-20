@@ -1,8 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import update from 'immutability-helper';
+
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -25,6 +30,9 @@ const styles = {
     marginTop: "0",
     marginBottom: "0"
   },
+    participantHeader:{
+        color: 'white'
+    },
   cardTitleWhite: {
     color: "#FFFFFF",
     marginTop: "0px",
@@ -44,6 +52,7 @@ class UserProfile extends React.Component {
         participants: []
       }
         this.newParticipant = this.newParticipant.bind(this);
+      this.updateParticipant = this.updateParticipant.bind(this);
     }
 
     componentDidMount(){
@@ -52,16 +61,20 @@ class UserProfile extends React.Component {
         ParticipantRef.on('value', (snapshot) => {
             let items = snapshot.val();
             let newState = [];
+            console.log(items)
             for (let item in items) {
                 newState.push({
+                    key: item,
+                    id: items[item].id,
                     age: items[item].age,
                     gender: items[item].gender,
                     marital: items[item].marital,
                     name: items[item].name,
                     painDur: items[item].painDur,
-                    race: items[item].race,
-                    num: item
+                    race: items[item].race
                 });
+                //console.log(item)
+                // console.log(Object.keys(item)[0])
             }
             this.setState({
                 participants: newState
@@ -70,7 +83,35 @@ class UserProfile extends React.Component {
     }
 
     newParticipant(){
-        console.log("h\n")
+        const staticInfoRef = firebase.database().ref('staticParticipantInfo');
+        const  staticInfoSession = {
+            id: 12345,
+            name: "Name",
+            age: null,
+            gender: null,
+            race: null,
+            marital: null,
+            painDur: null
+        };
+
+        staticInfoRef.push(staticInfoSession);
+
+        const dynamicInfoRef = firebase.database().ref('dynamicParticipantInfo');
+        const dynamicInfoSession = {
+            participant: 12345,
+            sbp: null,
+            bmi: null,
+            hbp: null
+        };
+        dynamicInfoRef.push(dynamicInfoSession);
+    }
+
+    updateParticipant(participant){
+        console.log(participant)
+        let updates = {}
+        updates['/staticParticipantInfo/'+participant.key] = participant
+        // firebase.database().ref('staticParticipantInfo').child(participant.key).set(participant)
+        // firebase.database().ref('staticParticipantInfo').set({[participant.key] : participant})
     }
 
     render(){
@@ -80,60 +121,108 @@ class UserProfile extends React.Component {
             <div>
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={8}>
-                        <Button color="primary" onPress={this.newParticipant}>New Participant</Button>
+                        <Button color="primary" onClick={this.newParticipant}>New Participant</Button>
                     </GridItem>
                     {this.state.participants.map((participant, i) => {
                         return (<GridItem xs={12} sm={12} md={8}>
                             <Card>
                                 <CardHeader color="primary">
-                                    <h4 className={classes.cardTitleWhite}>{participant.name}</h4>
+                                    {/*<h4 className={classes.cardTitleWhite}>{participant.name}</h4>*/}
+                                    <TextField
+                                        label="Name"
+                                        id="standard-name"
+                                        value={participant.name}
+                                        className={classes.textField}
+
+                                        // onChange = {(e)=>{console.log(e.target.value)}}
+                                        onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {name: {$set: e.target.value}}})})}
+
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
                                 </CardHeader>
                                 <CardBody>
                                    
                                     <GridContainer>
                                         <GridItem xs={12} sm={12} md={5}>
-                                            Age:
+                                            <TextField
+                                                id="standard-name"
+                                                label="Age"
+                                                value={participant.age}
+                                                className={classes.textField}
+                                                onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {age: {$set: e.target.value}}})})}
+                                                margin="normal"
+                                            />
                                         </GridItem>
-                                        <GridItem xs={12} sm={12} md={3}>
-                                            {participant.age}
-                                        </GridItem>
-                                    </GridContainer>
-                                    <GridContainer>
                                         <GridItem xs={12} sm={12} md={5}>
-                                            Gender:
-                                        </GridItem>
-                                        <GridItem xs={12} sm={12} md={3}>
-                                            {participant.gender}
+                                            <TextField
+                                                id="standard-name"
+                                                label="Gender"
+                                                value={participant.gender}
+                                                className={classes.textField}
+                                                onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {gender: {$set: e.target.value}}})})}
+                                                margin="normal"
+                                            />
                                         </GridItem>
                                     </GridContainer>
-                                    <GridContainer>
+
+                                      <GridContainer>
                                         <GridItem xs={12} sm={12} md={5}>
-                                            Marital Status:
+                                            <TextField
+                                                id="standard-name"
+                                                label="Marital Status"
+                                                value={participant.marital}
+                                                className={classes.textField}
+                                                onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {marital: {$set: e.target.value}}})})}
+                                                margin="normal"
+                                            />
                                         </GridItem>
-                                        <GridItem xs={12} sm={12} md={3}>
-                                            {participant.marital}
-                                        </GridItem>
+                                          <GridItem xs={12} sm={12} md={5}>
+                                              <TextField
+                                                  id="standard-name"
+                                                  label="Duration of Pain"
+                                                  value={participant.painDur}
+                                                  className={classes.textField}
+                                                  onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {painDur: {$set: e.target.value}}})})}
+                                                  margin="normal"
+                                              />
+                                          </GridItem>
                                     </GridContainer>
-                                    <GridContainer>
-                                        <GridItem xs={12} sm={12} md={5}>
-                                            Duration of Pain:
+                                      <GridContainer>
+                                          <GridItem xs={12} sm={12} md={5}>
+                                            <TextField
+                                                id="standard-name"
+                                                label="Race/Ethnicity"
+                                                value={participant.race}
+                                                className={classes.textField}
+                                                onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {race: {$set: e.target.value}}})})}
+                                                margin="normal"
+                                            />
                                         </GridItem>
-                                        <GridItem xs={12} sm={12} md={3}>
-                                            {participant.painDur}
-                                        </GridItem>
+                                          <GridItem xs={12} sm={12} md={5}>
+                                              <TextField
+                                                  id="standard-read-only-input"
+                                                  label="ID - Read Only"
+                                                  value={participant.id}
+                                                  className={classes.textField}
+                                                  margin="normal"
+                                              />
+                                          </GridItem>
                                     </GridContainer>
-                                    <GridContainer>
-                                        <GridItem xs={12} sm={12} md={5}>
-                                            Race/Ethnicity:
-                                        </GridItem>
-                                        <GridItem xs={12} sm={12} md={3}>
-                                            {participant.race}
-                                        </GridItem>
-                                    </GridContainer>
+
                                 </CardBody>
                                 <CardFooter>
-                                    <Button color="primary">Update Profile</Button>
+                                    <GridContainer>
+                                        <GridItem xs={12} sm={12} md={6}>
+                                            <Button  margin="normal" color="primary" onClick={()=>{this.updateParticipant(participant)}}>Update Participant</Button>
+                                        </GridItem>
+                                        <GridItem xs={12} sm={12} md={6}>
+                                            <Button   margin="normal" onClick={()=>{firebase.database().ref('staticParticipantInfo').child(participant.key).remove()}} color="warning">Delete Participant</Button>
+                                        </GridItem>
+                                    </GridContainer>
                                 </CardFooter>
+
                             </Card>
                         </GridItem>
                     )})}
@@ -163,6 +252,7 @@ class UserProfile extends React.Component {
         );
     }
 }
+
 
 UserProfile.propTypes = {
     classes: PropTypes.object.isRequired
