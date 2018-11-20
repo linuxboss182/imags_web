@@ -142,16 +142,15 @@ class UserProfile extends React.Component {
                                     {/*<h4 className={classes.cardTitleWhite}>{participant.name}</h4>*/}
                                     <TextField
                                         label="Name"
-                                        id="standard-name"
                                         value={participant.name}
                                         className={classes.textField}
-
-                                        // onChange = {(e)=>{console.log(e.target.value)}}
-                                        onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {name: {$set: e.target.value}}})})}
-
-                                        formControlProps={{
-                                            fullWidth: true
+                                        inputProps={{
+                                            className: classes.cardTitleWhite
                                         }}
+                                        InputLabelProps={{
+                                            className: classes.cardTitleWhite
+                                        }}
+                                        onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {name: {$set: e.target.value}}})})}
                                     />
                                 </CardHeader>
                                 <CardBody>
