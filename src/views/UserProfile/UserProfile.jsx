@@ -53,6 +53,7 @@ class UserProfile extends React.Component {
       }
         this.newParticipant = this.newParticipant.bind(this);
       this.updateParticipant = this.updateParticipant.bind(this);
+      this.makeID = this.makeID.bind(this);
     }
 
     componentDidMount(){
@@ -82,16 +83,27 @@ class UserProfile extends React.Component {
         });
     }
 
+    makeID(length){
+        let output = ""
+        let viableChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
+        for(let i = 0; i < length;i++){
+            output+= viableChars.charAt(Math.floor(Math.random()*viableChars.length))
+        }
+
+        return output
+    }
+
     newParticipant(){
         const staticInfoRef = firebase.database().ref('staticParticipantInfo');
         const  staticInfoSession = {
-            id: 12345,
-            name: "Name",
-            age: null,
-            gender: null,
-            race: null,
-            marital: null,
-            painDur: null
+            id: this.makeID(5),
+            name: "",
+            age: "",
+            gender: "",
+            race: "",
+            marital: "",
+            painDur: ""
         };
 
         staticInfoRef.push(staticInfoSession);
@@ -110,7 +122,7 @@ class UserProfile extends React.Component {
         console.log(participant)
         let updates = {}
         updates['/staticParticipantInfo/'+participant.key] = participant
-        // firebase.database().ref('staticParticipantInfo').child(participant.key).set(participant)
+        firebase.database().ref('staticParticipantInfo').child(participant.key).set(participant,()=>{console.log("Done Updating")})
         // firebase.database().ref('staticParticipantInfo').set({[participant.key] : participant})
     }
 
