@@ -29,13 +29,31 @@ export default class StreamingDemo extends React.Component {
     }
 
     aggregateSessions(){
+        let stateOffset = 0;
         this.state.sessions.map((session, i) => {
             let startDate = session.events[0].date;
+            let started = 0;
+            let stateCount = -1;
             //aggregate events
             session.events.map((event, j) => {
-                event.date = event.date - startDate;
-                this.state.session.events.push(event)
+                if(event.songState !=  stateCount){
+                    stateCount += 1;
+                }
+                event.songState = stateCount + stateOffset;
+
+                if(started) {
+                    event.date = event.date - startDate;
+                    this.state.session.events.push(event)
+                }else{
+                    if(event.eventType == "play"){
+                        started = j;
+                        startDate = session.events[j].date;
+                        event.date = event.date - startDate;
+                        this.state.session.events.push(event)
+                    }
+                }
             });
+            stateOffset += stateCount+1;
             //aggregate songstates
             session.songStates.map((state, j) => {
                 this.state.session.songStates.push(state)
