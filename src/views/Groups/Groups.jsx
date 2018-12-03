@@ -40,7 +40,7 @@ import {
 } from "variables/charts.jsx";
 
 import firebase from 'db.js';
-import SessionChart from '../Sessions/SessionChart.js'
+import GroupChart from './GroupChart.js'
 
 const styles = {
     cardCategoryWhite: {
@@ -82,9 +82,12 @@ class Groups extends React.Component {
     constructor() {
         super();
         this.state = {
-            sessions: []
+            sessions: [],
+            participants: [],
+            groups: []
         }
         this.buildData = this.buildData.bind(this);
+        this.buildGroups = this.buildGroups.bind(this);
     }
 
     componentDidMount(){
@@ -105,6 +108,55 @@ class Groups extends React.Component {
                 sessions: newState
             });
         });
+
+        const ParticipantRef = firebase.database().ref('staticParticipantInfo');
+        ParticipantRef.on('value', (snapshot) => {
+            let items = snapshot.val();
+            let newState = [];
+            console.log(items)
+            for (let item in items) {
+                newState.push({
+                    key: item,
+                    id: items[item].id,
+                    age: items[item].age,
+                    gender: items[item].gender,
+                    marital: items[item].marital,
+                    name: items[item].name,
+                    painDur: items[item].painDur,
+                    race: items[item].race,
+                    groups: items[item].groups
+                });
+                //console.log(item)
+                // console.log(Object.keys(item)[0])
+            }
+            this.setState({
+                participants: newState
+            });
+
+            this.buildGroups();
+        });
+
+    }
+
+    buildGroups(){
+        this.state.groups.push(this.state.sessions);
+        let listGroups = [];
+
+        //Grab list of groups
+        this.state.participants.map((partInfo) => {
+            if(partInfo.groups) {
+                if (!(listGroups.includes(partInfo.groups))) {
+                    listGroups.push(partInfo.groups)
+                }
+            }
+        });
+
+        //For each session, add to group TODO we need to know which participant took a session to do this
+        this.state.sessions.map((session, i) => {
+
+        });
+
+        this.setState({})
     }
 
     buildData(session){
@@ -125,8 +177,8 @@ class Groups extends React.Component {
         const { classes } = this.props;
         return (
             <GridContainer>
-                {this.state.sessions.map((group, i) => {
-                    return (<GridItem xs={12} sm={12} md={12} key={i}>
+                {this.state.groups.map((group, i) => {
+                        return (<GridItem xs={12} sm={12} md={12} key={i}>
                             <Card>
                                 <CardHeader color="primary">
                                     <h4 className={classes.cardTitleWhite}>Group: {i} </h4>
@@ -140,11 +192,11 @@ class Groups extends React.Component {
                                     {/*tableHead={["Time", "Event", "Track", "Pain"]}*/}
                                     {/*tableData={this.buildData(session)}*/}
                                     {/*/>*/}
-                                    <SessionChart session={group}/>
+                                    <GroupChart session={group}/>
                                 </CardBody>
                             </Card>
-                        </GridItem>
-                    )})}
+                        </GridItem>)
+                })}
             </GridContainer>
         );
     }

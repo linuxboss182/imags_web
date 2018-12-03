@@ -98,7 +98,8 @@ class UserProfile extends React.Component {
                     marital: items[item].marital,
                     name: items[item].name,
                     painDur: items[item].painDur,
-                    race: items[item].race
+                    race: items[item].race,
+                    groups: items[item].groups
                 });
                 //console.log(item)
                 // console.log(Object.keys(item)[0])
@@ -128,6 +129,7 @@ class UserProfile extends React.Component {
             age: "",
             gender: "",
             race: "",
+            groups: "",
             marital: "",
             painDur: ""
         };
@@ -171,12 +173,12 @@ class UserProfile extends React.Component {
                                         id="standard-name"
                                         value={participant.name}
                                         className={classes.textField}
-                                        style={styles.nameHeader}
-                                        InputProps={{
-                                            style: styles.nameHeader,
+                                        inputProps={{
+                                            className: classes.cardTitleWhite
                                         }}
-                                        // style={styles.nameHeader}
-                                        // onChange = {(e)=>{console.log(e.target.value)}}
+                                        InputLabelProps={{
+                                            className: classes.cardTitleWhite
+                                        }}
                                         onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {name: {$set: e.target.value}}})})}
 
                                         formControlProps={{
@@ -255,6 +257,20 @@ class UserProfile extends React.Component {
                                                   className={classes.textField}
                                                   margin="normal"
                                               />
+                                          </GridItem>
+                                    </GridContainer>
+                                    <GridContainer>
+                                        <GridItem xs={12} sm={12} md={5}>
+                                            <TextField
+                                                id="standard-name"
+                                                label="Group"
+                                                value={participant.groups}
+                                                className={classes.textField}
+                                                onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {groups: {$set: e.target.value}}})})}
+                                                margin="normal"
+                                            />
+                                        </GridItem>
+                                    </GridContainer>
                                       </div>
 
                                 </CardBody>
