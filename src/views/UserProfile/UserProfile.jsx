@@ -6,6 +6,9 @@ import update from 'immutability-helper';
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 
 // core components
@@ -46,6 +49,24 @@ const styles = {
       textColor: "#FFFFFF",
       color: "#FFFFFF",
       stroke: "#FFFFFF"
+    },
+
+    formBody:{
+        display: 'flex',
+        "flex-direction": 'colum',
+        flex: 1
+    },
+
+    formRow:{
+      display: 'flex',
+        "flex-direction": 'row',
+        flex: 1
+    },
+
+    formElement:{
+        margin: 10,
+        width: 250
+
     }
 };
 
@@ -141,7 +162,7 @@ class UserProfile extends React.Component {
                         <Button color="primary" onClick={this.newParticipant}>New Participant</Button>
                     </GridItem>
                     {this.state.participants.map((participant, i) => {
-                        return (<GridItem xs={12} sm={12} md={8}>
+                        return (<GridItem xs={12} sm={8} md={8}>
                             <Card>
                                 <CardHeader color="primary">
                                     {/*<h4 className={classes.cardTitleWhite}>{participant.name}</h4>*/}
@@ -164,73 +185,77 @@ class UserProfile extends React.Component {
                                     />
                                 </CardHeader>
                                 <CardBody>
-                                   
-                                    <GridContainer>
-                                        <GridItem xs={12} sm={12} md={5}>
+                                    <div style = {styles.formRow}>
                                             <TextField
-                                                id="standard-name"
-                                                label="Age"
+                                                style={styles.formElement}
+                                                id="standard-number"
+                                                type = "number"
+                                                label="Age (Years)"
                                                 value={participant.age}
                                                 className={classes.textField}
                                                 onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {age: {$set: e.target.value}}})})}
-                                                margin="normal"
                                             />
-                                        </GridItem>
-                                        <GridItem xs={12} sm={12} md={5}>
                                             <TextField
+                                                style={styles.formElement}
                                                 id="standard-name"
                                                 label="Gender"
                                                 value={participant.gender}
                                                 className={classes.textField}
                                                 onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {gender: {$set: e.target.value}}})})}
-                                                margin="normal"
                                             />
-                                        </GridItem>
-                                    </GridContainer>
+                                    </div>
 
-                                      <GridContainer>
-                                        <GridItem xs={12} sm={12} md={5}>
-                                            <TextField
-                                                id="standard-name"
-                                                label="Marital Status"
+                                    <div style = {styles.formRow}>
+                                        <FormControl style={styles.formElement} margin= "normal" >
+                                            <InputLabel>Marital Status</InputLabel>
+                                            <Select
                                                 value={participant.marital}
-                                                className={classes.textField}
                                                 onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {marital: {$set: e.target.value}}})})}
-                                                margin="normal"
-                                            />
-                                        </GridItem>
-                                          <GridItem xs={12} sm={12} md={5}>
-                                              <TextField
-                                                  id="standard-name"
-                                                  label="Duration of Pain"
-                                                  value={participant.painDur}
-                                                  className={classes.textField}
-                                                  onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {painDur: {$set: e.target.value}}})})}
-                                                  margin="normal"
-                                              />
-                                          </GridItem>
-                                    </GridContainer>
-                                      <GridContainer>
-                                          <GridItem xs={12} sm={12} md={5}>
-                                            <TextField
-                                                id="standard-name"
-                                                label="Race/Ethnicity"
+                                                inputProps={{
+                                                    id: "standard-name",
+                                                }}
+                                            >
+                                                <MenuItem value = "Unspecified">Unspecified</MenuItem>
+                                                <MenuItem value = "Married">Married</MenuItem>
+                                                <MenuItem value = "Unmarried">Unmarried</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                          <TextField
+                                              style={styles.formElement}
+                                              id="standard-name"
+                                              label="Months of Pain"
+                                              value={participant.painDur}
+                                              type = "number"
+                                              onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {painDur: {$set: e.target.value}}})})}
+                                              margin="normal"
+                                          />
+                                    </div>
+
+                                    <div style = {styles.formRow}>
+                                        <FormControl style={styles.formElement} margin= "normal" >
+                                            <InputLabel>Race/Ethnicity</InputLabel>
+                                            <Select
                                                 value={participant.race}
-                                                className={classes.textField}
                                                 onChange={(e)=>this.setState({participants: update(this.state.participants, {[i]: {race: {$set: e.target.value}}})})}
-                                                margin="normal"
-                                            />
-                                        </GridItem>
-                                          <GridItem xs={12} sm={12} md={5}>
+                                                inputProps={{
+                                                    id: "standard-name",
+                                                }}
+                                            >
+                                                <MenuItem value = "White">White</MenuItem>
+                                                <MenuItem value = "Black">Black or African American</MenuItem>
+                                                <MenuItem value = "Asian">Asian</MenuItem>
+                                                <MenuItem value = "Other">Other</MenuItem>
+                                            </Select>
+                                        </FormControl>
                                               <TextField
+                                                  style={styles.formElement}
                                                   id="standard-read-only-input"
                                                   label="ID - Read Only"
                                                   value={participant.id}
                                                   className={classes.textField}
                                                   margin="normal"
                                               />
-                                          </GridItem>
-                                    </GridContainer>
+                                      </div>
 
                                 </CardBody>
                                 <CardFooter>
