@@ -54,10 +54,14 @@ export default class StreamingDemo extends React.Component {
                 }
             });
             stateOffset += stateCount+1;
-            //aggregate songstates
-            session.songStates.map((state, j) => {
-                this.state.session.songStates.push(state)
-            });
+
+            if(session.songIDs) {
+                //aggregate songstates
+                session.songStates.map((state, j) => {
+                    this.state.session.songStates.push(state)
+                });
+            }
+
             //aggregate tracks
             this.state.session.songIDs = Object.assign(this.state.session.songIDs, session.songIDs);
         })
