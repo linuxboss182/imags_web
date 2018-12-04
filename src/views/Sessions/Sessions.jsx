@@ -132,7 +132,8 @@ class Sessions extends React.Component {
                             <CardHeader color="primary">
                                 <h4 className={classes.cardTitleWhite}>Session: {i} </h4>
                                 <p className={classes.cardCategoryWhite}>
-                                    ID: {session.num}
+                                    {/*ID: {session.num} <br />*/}
+                                    Took Medication: {"" + session.events.slice(-1)[0].tookMed}
                                 </p>
                             </CardHeader>
                             <CardBody className={classes.sessionBody}>
