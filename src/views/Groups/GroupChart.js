@@ -73,7 +73,7 @@ export default class StreamingDemo extends React.Component {
     songID(event){
         if (event.songState >= 0){
             let songState = this.state.session.songStates[event.songState];
-            if (songState.state.playing) {
+            if (songState && songState.state.playing) {
                 return songState.songID
             }else{
                 return -1
@@ -126,7 +126,7 @@ export default class StreamingDemo extends React.Component {
                             luminosity: 'bright',
                             hue: this.state.colors[i % this.state.colors.length]
                         });
-                        return (<Line name={this.songName(k)} type="monotone" dataKey={k}
+                        return (<Line key={i} name={this.songName(k)} type="monotone" dataKey={k}
                                       stroke={(k == -1) ? "none" : color} activeDot={{r: 8, stroke: (k == -1) ? "#000000" : color}} dot={{stroke: (k == -1) ? "#000000" : color}} />)
                     }) : null}
                 </LineChart>

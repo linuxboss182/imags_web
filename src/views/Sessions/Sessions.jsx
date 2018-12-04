@@ -98,6 +98,7 @@ class Sessions extends React.Component {
                     events: items[item].events,
                     songStates: items[item].songStates,
                     songIDs: items[item].songIDs,
+                    participant: items[item].participant,
                     num: item
                 });
             }

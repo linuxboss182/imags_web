@@ -83,8 +83,8 @@ class Groups extends React.Component {
         super();
         this.state = {
             sessions: [],
-            participants: [],
-            groups: []
+            participants: {},
+            groups: {}
         }
         this.buildData = this.buildData.bind(this);
         this.buildGroups = this.buildGroups.bind(this);
@@ -101,21 +101,22 @@ class Groups extends React.Component {
                     events: items[item].events,
                     songStates: items[item].songStates,
                     songIDs: items[item].songIDs,
+                    participant: items[item].participant,
                     num: item
                 });
             }
             this.setState({
-                sessions: newState
+                sessions: newState,
+                groups: {"All" : newState}
             });
         });
 
         const ParticipantRef = firebase.database().ref('staticParticipantInfo');
         ParticipantRef.on('value', (snapshot) => {
             let items = snapshot.val();
-            let newState = [];
-            console.log(items)
+            let newState = {};
             for (let item in items) {
-                newState.push({
+                newState[item] = {
                     key: item,
                     id: items[item].id,
                     age: items[item].age,
@@ -125,38 +126,30 @@ class Groups extends React.Component {
                     painDur: items[item].painDur,
                     race: items[item].race,
                     groups: items[item].groups
-                });
-                //console.log(item)
-                // console.log(Object.keys(item)[0])
+                }
             }
             this.setState({
                 participants: newState
             });
-
-            this.buildGroups();
         });
-
     }
 
     buildGroups(){
-        this.state.groups.push(this.state.sessions);
-        let listGroups = [];
 
-        //Grab list of groups
-        this.state.participants.map((partInfo) => {
-            if(partInfo.groups) {
-                if (!(listGroups.includes(partInfo.groups))) {
-                    listGroups.push(partInfo.groups)
+        //For each session, add to group
+        this.state.sessions.map((session, i) => {
+            let participant = this.state.participants[session.participant];
+            // console.log(participant.groups)
+            if(participant) {
+                if (this.state.groups.hasOwnProperty(participant.groups)) {
+                    this.state.groups[participant.groups].push(session)
+                } else {
+                    this.state.groups[participant.groups] = [session]
                 }
             }
-        });
-
-        //For each session, add to group TODO we need to know which participant took a session to do this
-        this.state.sessions.map((session, i) => {
 
         });
 
-        this.setState({})
     }
 
     buildData(session){
@@ -175,15 +168,17 @@ class Groups extends React.Component {
 
     render() {
         const { classes } = this.props;
+        this.buildGroups();
+
         return (
             <GridContainer>
-                {this.state.groups.map((group, i) => {
+                {Object.keys(this.state.groups).map((group, i) => {
                         return (<GridItem xs={12} sm={12} md={12} key={i}>
                             <Card>
                                 <CardHeader color="primary">
-                                    <h4 className={classes.cardTitleWhite}>Group: {i} </h4>
+                                    <h4 className={classes.cardTitleWhite}>Group: {group} </h4>
                                     <p className={classes.cardCategoryWhite}>
-                                        ID: {group.num}
+                                        ID: {group}
                                     </p>
                                 </CardHeader>
                                 <CardBody className={classes.sessionBody}>
@@ -192,7 +187,7 @@ class Groups extends React.Component {
                                     {/*tableHead={["Time", "Event", "Track", "Pain"]}*/}
                                     {/*tableData={this.buildData(session)}*/}
                                     {/*/>*/}
-                                    <GroupChart session={group}/>
+                                    <GroupChart session={this.state.groups[group]}/>
                                 </CardBody>
                             </Card>
                         </GridItem>)
