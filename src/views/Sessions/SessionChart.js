@@ -26,6 +26,7 @@ export default class StreamingDemo extends React.Component {
         this.timeFormatter = this.timeFormatter.bind(this);
         this.songName = this.songName.bind(this);
         this.songID = this.songID.bind(this);
+        this.legendClick = this.legendClick.bind(this);
     }
 
     songID(event){
@@ -65,6 +66,10 @@ export default class StreamingDemo extends React.Component {
         return moment(tick - this.state.session.events[0].date).format('mm:ss');
     }
 
+    legendClick(e){
+        alert(e.value + " Key: " + e.dataKey)
+    }
+
     render() {
         const { data, barIndex, left, right, refAreaLeft, refAreaRight, top, bottom, top2, bottom2 } = this.state;
 
@@ -78,7 +83,7 @@ export default class StreamingDemo extends React.Component {
                     {/*<XAxis type="category" dataKey="eventType" xAxisId={2} interval='preserveStartEnd' hide={true}/>*/}
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip labelFormatter={this.timeFormatter}/>
-                    <Legend />
+                    <Legend onClick={this.legendClick} />
                     {this.state.session.songIDs ? Object.keys(this.state.session.songIDs).map((k,i) => {
                         let color = randomColor({
                             luminosity: 'bright',
