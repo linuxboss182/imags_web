@@ -40,6 +40,14 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
+const header = {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: "300",
+    lineHeight: "1.5em",
+    textAlign: "center",
+    fontSize: "medium"
+};
+
 class Dashboard extends React.Component {
   state = {
     value: 0
@@ -56,6 +64,11 @@ class Dashboard extends React.Component {
     return (
       <div>
         <GridContainer>
+            <GridItem xs={12} sm={12} md={12}>
+                <Card>
+                    <p style={header}>This website was created for the propose of the IMAGS study, which seeks to study music's affect on chronic pain. For more information visit <a href="https://drive.google.com/file/d/1aM3L23doCdmQw2NVH3asSDimXZGwtJRB/view">IMAGS</a>.</p>
+                </Card>
+            </GridItem>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
               <CardHeader color="warning" stats icon>

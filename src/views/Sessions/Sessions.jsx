@@ -76,7 +76,13 @@ const styles = {
     }
 };
 
-
+const header = {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: "300",
+    lineHeight: "1.5em",
+    textAlign: "center",
+    fontSize: "medium"
+};
 
 class Sessions extends React.Component {
     constructor() {
@@ -126,6 +132,13 @@ class Sessions extends React.Component {
         const { classes } = this.props;
         return (
             <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                    <Card>
+                        <p style={header}>This website was created for the propose of the IMAGS study, which seeks to study music's affect on chronic pain. For more information visit <a href="https://drive.google.com/file/d/1aM3L23doCdmQw2NVH3asSDimXZGwtJRB/view">IMAGS</a>.
+                            <br/> Below are all of the reported sessions for this study.
+                        </p>
+                    </Card>
+                </GridItem>
                 {this.state.sessions.map((session, i) => {
                     return (<GridItem xs={12} sm={12} md={12} key={i}>
                         <Card>
