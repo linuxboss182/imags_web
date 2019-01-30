@@ -39,6 +39,7 @@ import {
 } from "variables/charts.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
+import firebase from 'db.js';
 
 const header = {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -49,9 +50,16 @@ const header = {
 };
 
 class Dashboard extends React.Component {
-  state = {
-    value: 0
-  };
+    constructor() {
+        super();
+        this.state = {
+            value: 0,
+            sessions: [],
+            participants: {},
+            groups: {}
+        };
+        this.buildGroups = this.buildGroups.bind(this);
+    }
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -59,9 +67,73 @@ class Dashboard extends React.Component {
   handleChangeIndex = index => {
     this.setState({ value: index });
   };
+
+  componentDidMount(){
+    //Load data
+    const sessionsRef = firebase.database().ref('sessions');
+    sessionsRef.on('value', (snapshot) => {
+        let items = snapshot.val();
+        let newState = [];
+        for (let item in items) {
+            newState.push({
+                events: items[item].events,
+                songStates: items[item].songStates,
+                songIDs: items[item].songIDs,
+                participant: items[item].participant,
+                num: item
+            });
+        }
+        this.setState({
+            sessions: newState
+        });
+    });
+
+      const ParticipantRef = firebase.database().ref('staticParticipantInfo');
+      ParticipantRef.on('value', (snapshot) => {
+          let items = snapshot.val();
+          let newState = {};
+          for (let item in items) {
+              newState[item] = {
+                  key: item,
+                  id: items[item].id,
+                  age: items[item].age,
+                  gender: items[item].gender,
+                  marital: items[item].marital,
+                  name: items[item].name,
+                  painDur: items[item].painDur,
+                  race: items[item].race,
+                  groups: items[item].groups
+              }
+          }
+          this.setState({
+              participants: newState
+          });
+      });
+  }
+
+    buildGroups(){
+
+        //For each session, add to group
+        this.state.sessions.map((session, i) => {
+            let participant = this.state.participants[session.participant];
+            // console.log(participant.groups)
+            if(participant) {
+                if (this.state.groups.hasOwnProperty(participant.groups)) {
+                    this.state.groups[participant.groups].push(session)
+                } else {
+                    this.state.groups[participant.groups] = [session]
+                }
+            }
+
+        });
+
+    }
+
   render() {
     const { classes } = this.props;
-    return (
+    this.buildGroups();
+
+      return (
       <div>
         <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
@@ -77,7 +149,7 @@ class Dashboard extends React.Component {
                 </CardIcon>
                 <p className={classes.cardCategory}>Sessions Reported</p>
                 <h3 className={classes.cardTitle}>
-                  31
+                    {this.state.sessions.length}
                 </h3>
               </CardHeader>
               <CardFooter stats>
@@ -95,7 +167,7 @@ class Dashboard extends React.Component {
                   <Store />
                 </CardIcon>
                 <p className={classes.cardCategory}>Groups</p>
-                <h3 className={classes.cardTitle}>2</h3>
+                <h3 className={classes.cardTitle}>{Object.keys(this.state.groups).length}</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -113,7 +185,7 @@ class Dashboard extends React.Component {
                   <Accessibility />
                 </CardIcon>
                 <p className={classes.cardCategory}>Participants</p>
-                <h3 className={classes.cardTitle}>6</h3>
+                <h3 className={classes.cardTitle}>{Object.keys(this.state.participants).length}</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -131,7 +203,7 @@ class Dashboard extends React.Component {
                             <Icon>info_outline</Icon>
                         </CardIcon>
                         <p className={classes.cardCategory}>Errors</p>
-                        <h3 className={classes.cardTitle}>2</h3>
+                        <h3 className={classes.cardTitle}>0</h3>
                     </CardHeader>
                     <CardFooter stats>
                         <div className={classes.stats}>
@@ -142,84 +214,84 @@ class Dashboard extends React.Component {
                 </Card>
             </GridItem>
         </GridContainer>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
-              <CardHeader color="success">
-                <ChartistGraph
-                  className="ct-chart"
-                  data={dailySalesChart.data}
-                  type="Line"
-                  options={dailySalesChart.options}
-                  listener={dailySalesChart.animation}
-                />
-              </CardHeader>
-              <CardBody>
-                <h4 className={classes.cardTitle}>Daily Sessions</h4>
-                <p className={classes.cardCategory}>
-                  <span className={classes.successText}>
-                    <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-                  </span>{" "}
-                  increase in today sessions.
-                </p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> updated 4 minutes ago
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
-              <CardHeader color="warning">
-                <ChartistGraph
-                  className="ct-chart"
-                  data={emailsSubscriptionChart.data}
-                  type="Bar"
-                  options={emailsSubscriptionChart.options}
-                  responsiveOptions={emailsSubscriptionChart.responsiveOptions}
-                  listener={emailsSubscriptionChart.animation}
-                />
-              </CardHeader>
-              <CardBody>
-                <h4 className={classes.cardTitle}>Participants</h4>
-                <p className={classes.cardCategory}>
-                  Last Study Performance
-                </p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> study sent 2 days ago
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
-              <CardHeader color="danger">
-                <ChartistGraph
-                  className="ct-chart"
-                  data={completedTasksChart.data}
-                  type="Line"
-                  options={completedTasksChart.options}
-                  listener={completedTasksChart.animation}
-                />
-              </CardHeader>
-              <CardBody>
-                <h4 className={classes.cardTitle}>Completed Sessions</h4>
-                <p className={classes.cardCategory}>
-                  Last Study Performance
-                </p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> study sent 2 days ago
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-        </GridContainer>
+        {/*<GridContainer>*/}
+          {/*<GridItem xs={12} sm={12} md={4}>*/}
+            {/*<Card chart>*/}
+              {/*<CardHeader color="success">*/}
+                {/*<ChartistGraph*/}
+                  {/*className="ct-chart"*/}
+                  {/*data={dailySalesChart.data}*/}
+                  {/*type="Line"*/}
+                  {/*options={dailySalesChart.options}*/}
+                  {/*listener={dailySalesChart.animation}*/}
+                {/*/>*/}
+              {/*</CardHeader>*/}
+              {/*<CardBody>*/}
+                {/*<h4 className={classes.cardTitle}>Daily Sessions</h4>*/}
+                {/*<p className={classes.cardCategory}>*/}
+                  {/*<span className={classes.successText}>*/}
+                    {/*<ArrowUpward className={classes.upArrowCardCategory} /> 55%*/}
+                  {/*</span>{" "}*/}
+                  {/*increase in today sessions.*/}
+                {/*</p>*/}
+              {/*</CardBody>*/}
+              {/*<CardFooter chart>*/}
+                {/*<div className={classes.stats}>*/}
+                  {/*<AccessTime /> updated 4 minutes ago*/}
+                {/*</div>*/}
+              {/*</CardFooter>*/}
+            {/*</Card>*/}
+          {/*</GridItem>*/}
+          {/*<GridItem xs={12} sm={12} md={4}>*/}
+            {/*<Card chart>*/}
+              {/*<CardHeader color="warning">*/}
+                {/*<ChartistGraph*/}
+                  {/*className="ct-chart"*/}
+                  {/*data={emailsSubscriptionChart.data}*/}
+                  {/*type="Bar"*/}
+                  {/*options={emailsSubscriptionChart.options}*/}
+                  {/*responsiveOptions={emailsSubscriptionChart.responsiveOptions}*/}
+                  {/*listener={emailsSubscriptionChart.animation}*/}
+                {/*/>*/}
+              {/*</CardHeader>*/}
+              {/*<CardBody>*/}
+                {/*<h4 className={classes.cardTitle}>Participants</h4>*/}
+                {/*<p className={classes.cardCategory}>*/}
+                  {/*Last Study Performance*/}
+                {/*</p>*/}
+              {/*</CardBody>*/}
+              {/*<CardFooter chart>*/}
+                {/*<div className={classes.stats}>*/}
+                  {/*<AccessTime /> study sent 2 days ago*/}
+                {/*</div>*/}
+              {/*</CardFooter>*/}
+            {/*</Card>*/}
+          {/*</GridItem>*/}
+          {/*<GridItem xs={12} sm={12} md={4}>*/}
+            {/*<Card chart>*/}
+              {/*<CardHeader color="danger">*/}
+                {/*<ChartistGraph*/}
+                  {/*className="ct-chart"*/}
+                  {/*data={completedTasksChart.data}*/}
+                  {/*type="Line"*/}
+                  {/*options={completedTasksChart.options}*/}
+                  {/*listener={completedTasksChart.animation}*/}
+                {/*/>*/}
+              {/*</CardHeader>*/}
+              {/*<CardBody>*/}
+                {/*<h4 className={classes.cardTitle}>Completed Sessions</h4>*/}
+                {/*<p className={classes.cardCategory}>*/}
+                  {/*Last Study Performance*/}
+                {/*</p>*/}
+              {/*</CardBody>*/}
+              {/*<CardFooter chart>*/}
+                {/*<div className={classes.stats}>*/}
+                  {/*<AccessTime /> study sent 2 days ago*/}
+                {/*</div>*/}
+              {/*</CardFooter>*/}
+            {/*</Card>*/}
+          {/*</GridItem>*/}
+        {/*</GridContainer>*/}
         {/*<GridContainer>*/}
           {/*<GridItem xs={12} sm={12} md={6}>*/}
             {/*<CustomTabs*/}

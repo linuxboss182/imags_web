@@ -189,7 +189,7 @@ class Groups extends React.Component {
                         return (<GridItem xs={12} sm={12} md={12} key={i}>
                             <Card>
                                 <CardHeader color="primary">
-                                    <h4 className={classes.cardTitleWhite}>Group: {group} </h4>
+                                    <h4 className={classes.cardTitleWhite}>{group === "undefined" ?  "No Group" : "Group: " + group} </h4>
                                     <p className={classes.cardCategoryWhite}>
                                         ID: {group}
                                     </p>
