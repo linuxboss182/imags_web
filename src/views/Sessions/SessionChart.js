@@ -84,7 +84,6 @@ export default class StreamingDemo extends React.Component {
 
         for(let i = 0; i<lines.length;i++){
             for(let j = 0; j<blackList.length;j++){
-                console.log(lines[i],blackList[j])
                 if(lines[i].indexOf(blackList[j]) !== -1){
 
                     lines[i] = ""
@@ -98,8 +97,10 @@ export default class StreamingDemo extends React.Component {
     }
 
     legendClick(e){
-        console.log(e)
-        alert(this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]))
+
+        if(e.payload.dataKey != -1) {
+            alert(this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]))
+        }
         // confirmAlert({
         //     title: e.payload.name,
         //     message: this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]),
