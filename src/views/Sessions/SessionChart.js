@@ -2,10 +2,13 @@ import React from "react";
 
 import { ResponsiveContainer, Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 import moment from 'moment';
+import {confirmAlert} from 'react-confirm-alert'
 
 var randomColor = require('randomcolor');
 
 export default class StreamingDemo extends React.Component {
+
+
 
     constructor(props) {
         super(props);
@@ -27,6 +30,7 @@ export default class StreamingDemo extends React.Component {
         this.songName = this.songName.bind(this);
         this.songID = this.songID.bind(this);
         this.legendClick = this.legendClick.bind(this);
+        this.attributesToString = this.attributesToString.bind(this);
     }
 
     songID(event){
@@ -66,8 +70,46 @@ export default class StreamingDemo extends React.Component {
         return moment(tick - this.state.session.events[0].date).format('mm:ss');
     }
 
+    attributesToString(attr){
+        var blackList = ["type:","uri:","track_href:","time_signature:","id:","analysis_url:"]
+        var str = JSON.stringify(attr);
+        str = str.replace(/{/g,"")
+        str = str.replace(/}/g,"")
+
+        str = str.replace(/"/g,"")
+        str = str.replace(/:/g,": ")
+        str = str.replace(/,/g,"\n,")
+        var lines = str.split(/,/g)
+
+
+        for(let i = 0; i<lines.length;i++){
+            for(let j = 0; j<blackList.length;j++){
+                console.log(lines[i],blackList[j])
+                if(lines[i].indexOf(blackList[j]) !== -1){
+
+                    lines[i] = ""
+                }
+            }
+        }
+
+        var output = lines.join('')
+
+        return output
+    }
+
     legendClick(e){
-        alert(e.value + " Key: " + e.dataKey)
+        console.log(e)
+        alert(this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]))
+        // confirmAlert({
+        //     title: e.payload.name,
+        //     message: this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]),
+        //     buttons: [
+        //         {
+        //             label: 'Back',
+        //             onClick: () => {}
+        //         }
+        //     ]
+        // })
     }
 
     render() {

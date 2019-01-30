@@ -105,6 +105,7 @@ class Sessions extends React.Component {
                     songStates: items[item].songStates,
                     songIDs: items[item].songIDs,
                     participant: items[item].participant,
+                    songAttributes: items[item].songAttributes,
                     num: item
                 });
             }
