@@ -71,8 +71,15 @@ export default class StreamingDemo extends React.Component {
     }
 
     attributesToString(attr){
+
         var blackList = ["type:","uri:","track_href:","time_signature:","id:","analysis_url:"]
+
+        let secondDur = attr["duration_ms"]/1000
+
         var str = JSON.stringify(attr);
+        var temp
+        str = str.replace(/,\"duration_ms\":(.*?),/g,",\"Duration(seconds)\":"+secondDur+",")
+        str = str.replace(/tempo/g,"bpm")
         str = str.replace(/{/g,"")
         str = str.replace(/}/g,"")
 
