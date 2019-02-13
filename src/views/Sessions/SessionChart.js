@@ -3,6 +3,7 @@ import React from "react";
 import { ResponsiveContainer, Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 import moment from 'moment';
 import {confirmAlert} from 'react-confirm-alert'
+import firebase from 'db.js';
 
 var randomColor = require('randomcolor');
 
@@ -105,8 +106,19 @@ export default class StreamingDemo extends React.Component {
 
     legendClick(e){
 
+
+        
         if(e.payload.dataKey != -1) {
-            alert(this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]))
+            var self = this
+            firebase.database().ref('songAttributes/'+e.payload.dataKey).on("value",function (snapshot) {
+
+                if(snapshot.val()!=null) {
+                    alert(self.attributesToString(snapshot.val()))
+                }
+            }, function (errorObject) {
+                console.log("could not get song attributes: " + errorObject.code);
+            });
+
         }
         // confirmAlert({
         //     title: e.payload.name,

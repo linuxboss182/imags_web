@@ -2,6 +2,7 @@ import React from "react";
 
 import { ResponsiveContainer, Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
 import moment from 'moment';
+import firebase from 'db.js';
 
 var randomColor = require('randomcolor');
 
@@ -26,6 +27,10 @@ export default class StreamingDemo extends React.Component {
         this.songName = this.songName.bind(this);
         this.songID = this.songID.bind(this);
         this.aggregateSessions = this.aggregateSessions.bind(this);
+        this.legendClick = this.legendClick.bind(this);
+
+        this.attributesToString = this.attributesToString.bind(this);
+
     }
 
     aggregateSessions(){
@@ -110,7 +115,13 @@ export default class StreamingDemo extends React.Component {
 
     attributesToString(attr){
         var blackList = ["type:","uri:","track_href:","time_signature:","id:","analysis_url:"]
+
+        let secondDur = attr["duration_ms"]/1000
+
         var str = JSON.stringify(attr);
+        var temp
+        str = str.replace(/,\"duration_ms\":(.*?),/g,",\"Duration(seconds)\":"+secondDur+",")
+        str = str.replace(/tempo/g,"bpm")
         str = str.replace(/{/g,"")
         str = str.replace(/}/g,"")
 
@@ -122,7 +133,6 @@ export default class StreamingDemo extends React.Component {
 
         for(let i = 0; i<lines.length;i++){
             for(let j = 0; j<blackList.length;j++){
-                console.log(lines[i],blackList[j])
                 if(lines[i].indexOf(blackList[j]) !== -1){
 
                     lines[i] = ""
@@ -136,20 +146,19 @@ export default class StreamingDemo extends React.Component {
     }
 
     legendClick(e){
-        // console.log(e)
-        // alert(this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]))
+        if(e.payload.dataKey != -1) {
+            var self = this
+            firebase.database().ref('songAttributes/'+e.payload.dataKey).on("value",function (snapshot) {
 
 
-        // confirmAlert({
-        //     title: e.payload.name,
-        //     message: this.attributesToString(this.state.session.songAttributes[e.payload.dataKey]),
-        //     buttons: [
-        //         {
-        //             label: 'Back',
-        //             onClick: () => {}
-        //         }
-        //     ]
-        // })
+                if(snapshot.val()!=null) {
+                    alert(self.attributesToString(snapshot.val()))
+                }
+            }, function (errorObject) {
+                console.log("could not get song attributes: " + errorObject.code);
+            });
+
+        }
     }
 
     render() {
