@@ -136,7 +136,7 @@ class Sessions extends React.Component {
                 <GridItem xs={12} sm={12} md={12}>
                     <Card>
                         <p style={header}>This website was created for the propose of the IMAGS study, which seeks to study music's affect on chronic pain. For more information visit <a href="https://drive.google.com/file/d/1aM3L23doCdmQw2NVH3asSDimXZGwtJRB/view">IMAGS</a>.
-                            <br/> Below are all of the reported sessions for this study.
+                            <br/> Below are all of the reported sessions for this study. Click the songs in the legend to see thier attributes. To learn more about the song attributes, visit <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/">the Spotify documentation </a>.
                         </p>
                     </Card>
                 </GridItem>
