@@ -151,12 +151,16 @@ class Dashboard extends React.Component {
                 <h3 className={classes.cardTitle}>
                     {this.state.sessions.length}
                 </h3>
+
               </CardHeader>
               <CardFooter stats>
-                <div className={classes.stats}>
-                  <Update />
-                  Just Updated
-                </div>
+                  {/*<div className={classes.stats}>*/}
+                      {/*<Update />*/}
+                      {/*Just Updated*/}
+                  {/*</div>*/}
+                  <a href="https://imags-web.firebaseapp.com/users" onClick={e => e.preventDefault()}>
+                      View Sessions
+                  </a>
               </CardFooter>
             </Card>
           </GridItem>
@@ -171,7 +175,7 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                    <a href="" onClick={e => e.preventDefault()}>
+                    <a href="https://imags-web.firebaseapp.com/groups" onClick={e => e.preventDefault()}>
                         Manage Groups
                     </a>
                 </div>
@@ -189,7 +193,7 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                    <a href="" onClick={e => e.preventDefault()}>
+                    <a href="https://imags-web.firebaseapp.com/users" onClick={e => e.preventDefault()}>
                         Invite Participants
                     </a>
                 </div>
